@@ -1,0 +1,528 @@
+# AI ask Evaluation EngTine
+
+## Purpose
+
+Before any implementation, always evaluate the task first.
+
+The objective is **not** to choose the most powerful AI model.
+
+The objective is to determine:
+
+* Can AI safely implement this task?
+* How much engineering judgment is required?
+* How much autonomy should AI receive?
+* Which model capability is appropriate?
+* How much reasoning (thinking effort) is justified?
+* Should implementation begin immediately, or should planning happen first?
+
+Engineering decisions always come before model selection.
+
+---
+
+# Core Philosophy
+
+Optimize for the **lowest sufficient intelligence**, not the highest possible intelligence.
+
+Never default to the strongest model or maximum thinking.
+
+Escalate only when engineering complexity increases.
+
+The goal is:
+
+* Faster execution
+* Lower cost
+* More predictable output
+* Less overthinking
+* Higher consistency
+
+---
+
+# Step 1 — Information Completeness
+
+Before evaluating the task, determine whether enough information already exists.
+
+## Project Knowledge
+
+Check whether the following are already defined:
+
+* Tech stack
+* Project architecture
+* Folder structure
+* Database schema
+* API conventions
+* Coding conventions
+* Naming philosophy
+* Error handling strategy
+* State management
+* Existing project patterns
+* AI Rulebook / Engineering Handbook
+
+If several items are missing,
+
+→ Do NOT recommend implementation.
+
+Recommend discussion first.
+
+---
+
+## Task Definition
+
+Determine whether the task itself is sufficiently defined.
+
+Poor example
+
+> Implement Dashboard.
+
+Good example
+
+> Implement Dashboard Statistics API using existing analytics service and current database schema.
+
+If requirements are unclear,
+
+Ask questions before proceeding.
+
+---
+
+# Step 2 — Decision Load
+
+The most important question:
+
+Is AI expected to IMPLEMENT
+
+or
+
+Is AI expected to INVENT?
+
+Implementation examples
+
+* CRUD
+* API
+* Validation
+* Component
+* Existing pattern
+
+Design examples
+
+* Architecture
+* Folder strategy
+* Component strategy
+* Service boundaries
+* State strategy
+* Database redesign
+
+Implementation requires much less reasoning.
+
+Design requires much higher reasoning.
+
+---
+
+# Step 3 — Evaluate Every Dimension
+
+## A. Decision Complexity ⭐⭐⭐⭐⭐
+
+Question:
+
+How many engineering decisions are still unresolved?
+
+Low
+
+Everything already decided.
+
+High
+
+AI must design major parts of the system.
+
+---
+
+## B. Unknowns ⭐⭐⭐⭐⭐
+
+Question:
+
+How much required information is still missing?
+
+Examples
+
+* Missing requirements
+* Missing database design
+* Missing API contract
+* Missing user flow
+
+More unknowns
+
+↓
+
+Higher thinking.
+
+---
+
+## C. Documentation Coverage ⭐⭐⭐⭐⭐
+
+Question:
+
+How much documentation already exists?
+
+Examples
+
+* Architecture
+* Folder philosophy
+* Naming philosophy
+* API documentation
+* Rulebook
+
+More documentation
+
+↓
+
+Lower reasoning.
+
+---
+
+## D. Existing Project Patterns ⭐⭐⭐⭐⭐
+
+Question:
+
+Can AI reuse existing project patterns?
+
+If yes
+
+↓
+
+Reasoning decreases.
+
+---
+
+## E. Scope ⭐⭐⭐⭐☆
+
+Question:
+
+How much of the project changes?
+
+Examples
+
+* One function
+* One file
+* Few files
+* One module
+* Multiple modules
+* Whole application
+
+Larger scope
+
+↓
+
+Higher reasoning.
+
+---
+
+## F. Risk ⭐⭐⭐⭐⭐
+
+Does the task involve
+
+* Authentication
+* Authorization
+* Payment
+* Database migration
+* Production data
+* File deletion
+* Security
+
+Higher risk
+
+↓
+
+Higher review requirements.
+
+---
+
+## G. Creativity Required ⭐⭐⭐☆☆
+
+Examples
+
+Low
+
+* CRUD
+* Standard forms
+* Dashboard pages
+
+High
+
+* Video editor
+* Timeline
+* Canvas
+* Animation system
+* Complex UX
+
+---
+
+## H. Integration Complexity ⭐⭐⭐⭐⭐
+
+Question:
+
+How many independent systems must work together?
+
+Example
+
+Simple
+
+Controller
+
+↓
+
+Database
+
+Complex
+
+Frontend
+
+↓
+
+Backend
+
+↓
+
+Queue
+
+↓
+
+Storage
+
+↓
+
+Notification
+
+↓
+
+External APIs
+
+More integration
+
+↓
+
+Higher reasoning.
+
+---
+
+# Step 4 — AI Autonomy
+
+Determine how much freedom AI should receive.
+
+## Level A (90–100%)
+
+AI may implement independently.
+
+Examples
+
+* CRUD
+* API
+* Validation
+* Components
+* Existing patterns
+
+---
+
+## Level B (70–90%)
+
+AI may implement.
+
+Must stop if
+
+* New architecture
+* New dependency
+* New folder philosophy
+* Schema changes
+* Unexpected engineering decisions
+
+---
+
+## Level C (40–70%)
+
+AI should first propose.
+
+Human approves.
+
+Implementation begins afterwards.
+
+---
+
+## Level D (0–40%)
+
+Planning only.
+
+No implementation.
+
+Examples
+
+* Authentication redesign
+* Payment redesign
+* Major architecture
+* Database redesign
+
+---
+
+# Step 5 — Capability Recommendation
+
+Model selection happens AFTER engineering evaluation.
+
+Never before.
+
+Recommendation should include:
+
+* Recommended capability level
+* Reason
+* Thinking effort
+* Reason
+* AI autonomy
+* Confidence
+* Trade-offs
+
+---
+
+# Capability Classes
+
+Instead of hardcoding model names:
+
+C1
+
+Fast implementation model.
+
+C2
+
+Balanced reasoning + implementation.
+
+C3
+
+Strongest reasoning model.
+
+Separate mapping file
+
+Example
+
+C1 → Current fast coding model
+
+C2 → Current balanced reasoning model
+
+C3 → Current strongest reasoning model
+
+This keeps the methodology future-proof.
+
+---
+
+# Step 6 — Dynamic Prompt Selection
+
+Prompt size and workflow depend on task evaluation.
+
+Small task
+
+↓
+
+Minimal context
+
+Minimal prompt
+
+Medium task
+
+↓
+
+Relevant architecture
+
+Relevant rules
+
+Implementation prompt
+
+High-risk task
+
+↓
+
+Architecture
+
+Security rules
+
+Validation rules
+
+Review workflow
+
+Never use the same prompt for every task.
+
+---
+
+# Step 7 — Stop Conditions
+
+AI must stop and ask for approval when it encounters unexpected engineering decisions.
+
+Examples
+
+* New dependency
+* Architecture changes
+* Folder philosophy changes
+* Database redesign
+* API redesign
+* Security redesign
+* Technology replacement
+
+Implementation should pause until the decision is approved.
+
+---
+
+# Step 8 — Final Evaluation Report
+
+Every task evaluation should end with a structured recommendation.
+
+Example
+
+Decision Complexity:
+Low
+
+Unknowns:
+Low
+
+Documentation Coverage:
+High
+
+Existing Patterns:
+High
+
+Scope:
+Medium
+
+Risk:
+Medium
+
+Integration Complexity:
+Low
+
+AI Autonomy:
+90%
+
+Recommended Capability:
+C2
+
+Thinking Effort:
+Medium
+
+Recommended Workflow:
+Direct implementation
+
+Confidence:
+88%
+
+Reasoning:
+
+Architecture already exists.
+
+Folder structure is fixed.
+
+Database schema is finalized.
+
+Only implementation remains.
+
+No major engineering decisions are expected.
+
+---
+
+# Guiding Principle
+
+The purpose of this engine is **not** to predict the future.
+
+Its purpose is to estimate **how much engineering judgment remains**.
+
+The fewer engineering decisions left for AI, the lower the required reasoning effort and the greater the autonomy that can safely be given.
