@@ -1,0 +1,79 @@
+// Guidelines for deciding when to keep code in the same file and when to extract it into separate components, hooks, utilities, or modules. Focus on real responsibilities, not file length. Avoid unnecessary abstractions and over-engineering while keeping the codebase simple and consistent.
+
+# Component & Code Organization Rules
+
+## Rule 1 — Prefer modifying existing files
+Always extend the current file before creating a new one. Do not create new files unless there is a clear architectural reason.
+
+---
+
+## Rule 2 — File length is not a reason to split
+Do not split a file simply because it becomes long. A file with several hundred lines is acceptable if it still represents a single responsibility.
+
+---
+
+## Rule 3 — Split by responsibility, not by size
+Create a new component, hook, or module only when it has a clear and independent responsibility.
+
+Bad:
+- Splitting only to reduce line count.
+- Splitting only because the JSX looks long.
+
+Good:
+- Independent UI section.
+- Independent business logic.
+- Independent state management.
+- Independent feature.
+
+---
+
+## Rule 4 — Follow the Rule of Two
+Do not extract helpers, utilities, hooks, or components until the same logic is needed in at least two places, unless extraction significantly improves clarity.
+
+Avoid speculative abstractions.
+
+---
+
+## Rule 5 — No future-proof abstractions
+Do not create reusable systems, helper layers, service layers, or wrappers based on possible future requirements.
+
+Build only for the current requirements.
+
+---
+
+## Rule 6 — Every new file must have a purpose
+Every new file should solve a real problem.
+
+A new file should improve at least one of:
+- Separation of responsibility
+- Reusability
+- Maintainability
+- Testability
+
+Otherwise, keep the code in the existing file.
+
+---
+
+## Rule 7 — Keep related code together
+Code that changes together should stay together.
+
+Avoid moving closely related logic into different files unless there is a strong reason.
+
+---
+
+## Rule 8 — Prefer cohesion over small files
+High cohesion is more important than having many small files.
+
+A larger, well-organized file is preferred over many tiny files.
+
+---
+
+## Rule 9 — Respect the existing architecture
+Follow the project's existing patterns.
+
+Do not introduce new architectural styles, folder structures, or design patterns unless explicitly requested.
+
+---
+
+## Rule 10 — Simplicity wins
+When multiple implementations are possible, choose the simplest solution that satisfies the current requirements.
