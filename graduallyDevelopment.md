@@ -104,6 +104,9 @@ Improve the code step by step as the project grows.
 
 Do not perform a large architectural rewrite unless explicitly requested.
 
+
+
+
 ## Future Development
 
 Consider how the current implementation may evolve, but implement only what is required now.
@@ -135,3 +138,5 @@ Before finishing:
 ## Core Rule
 
 Build the simplest correct implementation for the current stage of the project, while keeping the code clear enough to improve gradually in future tasks.
+rule :- 
+Do not create dedicated single functions. Wait until a function is used in multiple places before extracting it.
