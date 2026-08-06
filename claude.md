@@ -1,97 +1,413 @@
 # Claude Project Instructions
 
-This is the main instruction file for the project.
+This is the primary instruction file for the project.
 
-The user only needs to reference `CLAUDE.md`. Claude must automatically read the relevant supporting rule files before working on a task.
+The user only needs to reference `claude.md`.
 
-Do not duplicate, summarize, rewrite, or explain the contents of the supporting files unless the user explicitly asks.
+Claude is responsible for automatically determining which supporting rule files are relevant to the current task and loading only those files.
 
-## Reasoning Check
+Do not duplicate, summarize, rewrite, or explain the contents of supporting rule files unless the user explicitly requests it.
+
+---
+
+# Primary Objectives
+
+Always prioritize the following:
+
+1. Correctness
+2. Simplicity
+3. Project consistency
+4. Incremental development
+5. Maintainability
+6. User control over architectural decisions
+
+Never optimize for future possibilities at the expense of the current project stage.
+
+---
+
+# Reasoning Check
 
 Before every task:
 
-* identify the selected Claude model, thinking mode, and effort level when visible;
-* review the current request, previous prompts, and relevant conversation context;
-* decide whether the selected reasoning level is appropriate for the task.
+1. Identify:
+   - selected Claude model (if visible)
+   - thinking mode (if visible)
+   - reasoning effort (if visible)
 
-If a lower level is sufficient, continue with focused reasoning and minimal token usage.
+2. Review:
+   - current request
+   - previous prompts
+   - recent conversation
+   - current project state
 
-If the task requires a higher model, thinking mode, or effort level than currently selected, tell the user what should be changed before continuing.
+3. Decide whether the selected reasoning level is appropriate.
 
-Do not use excessive reasoning or tokens for simple tasks.
+If a lower reasoning level is sufficient:
 
-## Supporting Rule Files
+- continue with focused reasoning
+- minimize unnecessary thinking
+- minimize token usage
 
-* `developmentRule.md`
-* `graduallyDevelopment.md`
-* `projectStage.md`
-* `stageCompletionRule.md`
+If a higher reasoning level is required:
 
-## Rule File Selection
+Explain why before continuing.
 
-### `developmentRule.md`
-
-Read before:
-
-* writing code;
-* editing code;
-* fixing bugs;
-* creating features;
-* refactoring;
-* changing project behavior.
+Never use high-effort reasoning for simple implementation tasks.
 
 ---
 
-### `graduallyDevelopment.md`
+# General Workflow
 
-Read before:
+For every request:
 
-* extending existing code;
-* improving an existing feature;
-* making architectural changes;
-* deciding whether to refactor;
-* considering functionality planned for later.
-
----
-
-### `projectStage.md`
-
-Read before:
-
-* starting a feature;
-* selecting the next task;
-* deciding what belongs in the current stage;
-* deciding what should be deferred;
-* moving between project stages.
+1. Understand the request.
+2. Determine the project stage.
+3. Load only the required rule files.
+4. Decide whether planning is required.
+5. Implement only the requested scope.
+6. Review impact.
+7. Suggest optional improvements.
+8. Verify completion.
+9. If applicable, update project stages only after user approval.
 
 ---
 
-### `stageCompletionRule.md`
+# Supporting Rule Files
 
-Read only when a feature appears fully completed.
+Core
 
-Use it before:
+- planning.md
+- development-rules.md
+- incremental-development.md
+- code-organization.md
+- component-extraction.md
 
-* closing a feature;
-* updating stage progress;
-* asking to move to the next stage.
+Project
 
-Do not apply this rule while implementation is still in progress.
+- project-assessment.md
+- project-foundation.md
+- evaluation-engine.md
+- project-stages.md
+- stage-completion.md
 
-## Automatic Rule Loading
+Quality
 
-For every code-related task, automatically read:
+- error-resolution.md
+- impact-review.md
+- enhancements.md
 
-1. `developmentRule.md`
-2. `graduallyDevelopment.md`
-3. `projectStage.md`
+---
 
-When the feature is fully completed, also read:
+# Rule File Selection
 
-4. `stageCompletionRule.md`
+Only load files required for the current task.
 
-For non-code tasks, read only the supporting files relevant to the request.
+Never load every rule file.
 
-The user should not need to tag or mention the supporting files separately.
+---
 
-Follow the instructions inside each selected file directly.
+## planning.md
+
+Read before:
+
+- implementing any feature
+- modifying existing code
+- refactoring
+- changing architecture
+- adding dependencies
+- changing project structure
+
+Purpose:
+
+- understand the request
+- review existing code
+- explain implementation plan
+- define affected files
+- stay within scope
+
+---
+
+## project-assessment.md
+
+Read before:
+
+- evaluating an existing project
+- determining project maturity
+- deciding AI autonomy
+- understanding an unfamiliar repository
+
+---
+
+## project-foundation.md
+
+Read before:
+
+- making architecture decisions
+- deciding folder structure
+- deciding naming conventions
+- introducing project-wide patterns
+- changing core project decisions
+
+---
+
+## evaluation-engine.md
+
+Read before implementation begins.
+
+Purpose:
+
+Determine:
+
+- whether implementation should begin
+- whether planning is sufficient
+- appropriate reasoning effort
+- implementation scope
+- AI autonomy
+
+---
+
+## development-rules.md
+
+Read before:
+
+- writing code
+- editing code
+- implementing features
+- fixing bugs
+- refactoring
+- changing behavior
+
+Purpose:
+
+Ensure correct implementation order and maintain project integrity.
+
+---
+
+## incremental-development.md
+
+Read before:
+
+- extending existing code
+- improving features
+- deciding refactoring
+- making architecture improvements
+
+Purpose:
+
+Ensure:
+
+- gradual development
+- beginner/intermediate complexity
+- no overengineering
+- consistent implementation
+
+---
+
+## code-organization.md
+
+Read before deciding whether to:
+
+- create new files
+- split files
+- move code
+- reorganize folders
+- introduce modules
+
+Purpose:
+
+Keep the project simple and cohesive.
+
+---
+
+## component-extraction.md
+
+Read only after deciding code may leave the current file.
+
+Purpose:
+
+Determine whether:
+
+- components
+- hooks
+- utilities
+- services
+- helper functions
+
+should actually be extracted.
+
+Avoid speculative abstractions.
+
+---
+
+## error-resolution.md
+
+Read before:
+
+- fixing errors
+- debugging
+- resolving build failures
+- handling runtime issues
+
+Purpose:
+
+Ensure:
+
+- root cause analysis
+- evidence-based fixes
+- minimal unrelated changes
+- verified solutions
+
+---
+
+## impact-review.md
+
+Read after implementation is complete.
+
+Purpose:
+
+Review the broader project impact.
+
+Check whether related updates are recommended.
+
+Separate:
+
+- Required changes
+- Optional consistency improvements
+
+Never assume optional changes should be implemented.
+
+---
+
+## enhancements.md
+
+Read after implementation and impact review.
+
+Purpose:
+
+Identify meaningful improvements.
+
+Only recommend improvements appropriate for the current stage.
+
+Never automatically implement optional enhancements.
+
+Ask the user which improvements should be applied.
+
+---
+
+## project-stages.md
+
+Read before:
+
+- starting a feature
+- selecting the next task
+- deciding current stage work
+- deciding deferred work
+- updating progress
+
+---
+
+## stage-completion.md
+
+Read only when a feature appears complete.
+
+Before closing a stage verify:
+
+- implementation complete
+- required work finished
+- tested
+- project runnable
+- no blockers remain
+
+If deferred work exists:
+
+Record it in `project-stages.md`.
+
+Only after verification ask:
+
+> The current stage is complete. Should I update `project-stages.md` and move to the next stage?
+
+Never update project stages automatically.
+
+Never update README unless explicitly requested.
+
+---
+
+# Rule Loading Priority
+
+When multiple rule files apply, follow this order:
+
+1. planning.md
+2. project-assessment.md
+3. project-foundation.md
+4. evaluation-engine.md
+5. development-rules.md
+6. incremental-development.md
+7. code-organization.md
+8. component-extraction.md
+9. error-resolution.md
+10. impact-review.md
+11. enhancements.md
+12. stage-completion.md
+
+Later rules supplement earlier rules.
+
+If two rules appear to conflict:
+
+1. Prefer correctness.
+2. Prefer explicit user instructions.
+3. Prefer project consistency.
+4. Prefer simplicity.
+5. Avoid future-proof abstractions.
+
+---
+
+# Automatic Rule Loading
+
+Determine which rule files are relevant.
+
+Load only those files.
+
+Do not load unrelated rules.
+
+The user should never need to manually specify supporting files.
+
+---
+
+# Core Principles
+
+Always:
+
+- implement one feature at a time
+- keep the project runnable
+- explain important decisions
+- minimize unnecessary reasoning
+- avoid unnecessary abstractions
+- prefer existing files
+- respect current architecture
+- review implementation impact
+- recommend optional improvements
+- let the user choose optional changes
+
+Never:
+
+- overengineer
+- optimize prematurely
+- create unnecessary files
+- refactor without reason
+- change unrelated code
+- assume optional improvements should be implemented
+- move to the next stage automatically
+
+---
+
+# Success Criteria
+
+A task is considered complete only when:
+
+- the requested work is finished
+- related required updates are completed
+- optional updates have been presented
+- the user's choices have been respected
+- no project consistency issues remain
+- the project remains runnable
+- the current stage (if applicable) has been verified
